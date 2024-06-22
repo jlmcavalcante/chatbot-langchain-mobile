@@ -5,10 +5,14 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
-from typing import Dict, List, Union
+from typing import Dict, List, Optional, Union
 
-from pydantic import BaseModel
+from langchain.pydantic_v1 import BaseModel
 
+from langchain.callbacks.manager import (
+    AsyncCallbackManagerForToolRun,
+    CallbackManagerForToolRun,
+)
 from langchain.tools.base import BaseTool
 
 
@@ -16,7 +20,7 @@ def _parse_input(text: str) -> List[Union[str, int]]:
     """Parse input of the form data["key1"][0]["key2"] into a list of keys."""
     _res = re.findall(r"\[.*?]", text)
     # strip the brackets and quotes, convert to int if possible
-    res = [i[1:-1].replace('"', "") for i in _res]
+    res = [i[1:-1].replace('"', "").replace("'", "") for i in _res]
     res = [int(i) if i.isdigit() else i for i in res]
     return res
 
@@ -80,34 +84,50 @@ class JsonSpec(BaseModel):
 class JsonListKeysTool(BaseTool):
     """Tool for listing keys in a JSON spec."""
 
-    name = "json_spec_list_keys"
-    description = """
+    name: str = "json_spec_list_keys"
+    description: str = """
     Can be used to list all keys at a given path. 
     Before calling this you should be SURE that the path to this exists.
     The input is a text representation of the path to the dict in Python syntax (e.g. data["key1"][0]["key2"]).
     """
     spec: JsonSpec
 
-    def _run(self, tool_input: str) -> str:
+    def _run(
+        self,
+        tool_input: str,
+        run_manager: Optional[CallbackManagerForToolRun] = None,
+    ) -> str:
         return self.spec.keys(tool_input)
 
-    async def _arun(self, tool_input: str) -> str:
+    async def _arun(
+        self,
+        tool_input: str,
+        run_manager: Optional[AsyncCallbackManagerForToolRun] = None,
+    ) -> str:
         return self._run(tool_input)
 
 
 class JsonGetValueTool(BaseTool):
     """Tool for getting a value in a JSON spec."""
 
-    name = "json_spec_get_value"
-    description = """
+    name: str = "json_spec_get_value"
+    description: str = """
     Can be used to see value in string format at a given path.
     Before calling this you should be SURE that the path to this exists.
     The input is a text representation of the path to the dict in Python syntax (e.g. data["key1"][0]["key2"]).
     """
     spec: JsonSpec
 
-    def _run(self, tool_input: str) -> str:
+    def _run(
+        self,
+        tool_input: str,
+        run_manager: Optional[CallbackManagerForToolRun] = None,
+    ) -> str:
         return self.spec.value(tool_input)
 
-    async def _arun(self, tool_input: str) -> str:
+    async def _arun(
+        self,
+        tool_input: str,
+        run_manager: Optional[AsyncCallbackManagerForToolRun] = None,
+    ) -> str:
         return self._run(tool_input)

@@ -1,14 +1,16 @@
-from langchain.document_loaders import YoutubeLoader, PDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.chat_models import ChatOpenAI
 from langchain.vectorstores import FAISS
 from langchain.chains import LLMChain
 from langchain.prompts import ChatPromptTemplate
+from langchain.schema import Document  # Importação adicionada
 
 from dotenv import load_dotenv
 import os
 import glob
+import fitz  # PyMuPDF
+from youtube_transcript_api import YouTubeTranscriptApi
 
 # Carrega as variáveis de ambiente
 load_dotenv()
@@ -21,26 +23,37 @@ embeddings = OpenAIEmbeddings(
     openai_api_key=openai_api_key
 )
 
-def create_vector_from_yt_urls(video_urls: list) -> FAISS:
-    # Cria vetores a partir de vídeos do YouTube
-    docs = []
-    for video_url in video_urls:
-        loader = YoutubeLoader.from_youtube_url(video_url, language="pt")
-        transcript = loader.load()
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
-        video_docs = text_splitter.split_documents(transcript)
-        docs.extend(video_docs)
-    db = FAISS.from_documents(docs, embeddings)
-    return db
+def get_youtube_transcript(video_url: str) -> str:
+    # Extrai o ID do vídeo do YouTube
+    video_id = video_url.split("v=")[-1]
+    
+    # Obtém a transcrição do vídeo do YouTube
+    transcript = YouTubeTranscriptApi.get_transcript(video_id, languages=['pt'])
+    transcript_text = " ".join([t['text'] for t in transcript])
+    return transcript_text
 
-def create_vector_from_pdfs(pdf_paths: list) -> FAISS:
-    # Cria vetores a partir de PDFs
+def create_vectors(video_urls: list, pdf_paths: list) -> FAISS:
+    # Cria vetores a partir de vídeos do YouTube e PDFs
     docs = []
+
+    # Processa vídeos do YouTube
+    for video_url in video_urls:
+        transcript = get_youtube_transcript(video_url)
+        if transcript:
+            text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
+            video_docs = text_splitter.split_documents([Document(page_content=transcript)])
+            docs.extend(video_docs)
+
+    # Processa PDFs
     for pdf_path in pdf_paths:
-        loader = PDFLoader(pdf_path)
-        pdf_docs = loader.load()
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
-        docs.extend(text_splitter.split_documents(pdf_docs))
+        doc = fitz.open(pdf_path)
+        text = ""
+        for page in doc:
+            text += page.get_text()
+        pdf_docs = text_splitter.split_documents([Document(page_content=text)])
+        docs.extend(pdf_docs)
+
+    # Cria o banco de dados vetorial
     db = FAISS.from_documents(docs, embeddings)
     return db
 
@@ -62,12 +75,13 @@ def get_response_from_query(db, query, k=4):
             (
                 "user",
                 """
-                Você é um assistente para pais ou responsáveis de pessoas com autismo que responde perguntas baseado em transcrições de vídeos do YouTube e textos de livros em PDF.
-                Responda a seguinte pergunta: {pergunta}
-                Procurando nos seguintes documentos: {docs}
+                Você é um assistente especializado em fornecer informações e suporte para pais e responsáveis por crianças autistas.
+                Responda a seguinte pergunta de forma clara, compreensiva e prática, considerando o contexto dos cuidadores que buscam entender e ajudar seus filhos autistas.
 
-                Use somente a informação dos documentos para responder a pergunta. Se você não sabe, responda com "Eu não sei".
-                Suas respostas devem ser bem detalhadas e verbosas.
+                Pergunta: {pergunta}
+                Informações relevantes: {docs}
+
+                Forneça respostas detalhadas e verbosas, oferecendo sugestões práticas e compreensíveis. Se não souber a resposta, diga "Eu não sei".
                 """
             )
         ]
@@ -79,7 +93,7 @@ def get_response_from_query(db, query, k=4):
     # Obtém a resposta
     response = chain({"pergunta": query, "docs": docs_page_content})
 
-    return response
+    return response['answer']
 
 def load_youtube_links(file_path: str) -> list:
     # Carrega links do YouTube a partir de um arquivo de texto
@@ -94,19 +108,13 @@ def load_pdf_paths(folder_path: str) -> list:
 
 def process_query(query):
     # Carrega os links do YouTube e os caminhos dos PDFs
-    video_urls = load_youtube_links("../../assets/youtube_links.txt")
-    pdf_paths = load_pdf_paths("../../assets/pdfs")
+    video_urls = load_youtube_links("assets/youtube_links.txt")
+    pdf_paths = load_pdf_paths("assets/pdfs")
     
-    # Cria vetores para vídeos do YouTube
-    db_videos = create_vector_from_yt_urls(video_urls)
-    
-    # Cria vetores para livros em PDF
-    db_pdfs = create_vector_from_pdfs(pdf_paths)
-    
-    # Combina os bancos de dados vetoriais
-    db_combined = FAISS.merge([db_videos, db_pdfs])
+    # Cria vetores para vídeos do YouTube e livros em PDF
+    db = create_vectors(video_urls, pdf_paths)
     
     # Obtém a resposta do chatbot
-    response = get_response_from_query(db_combined, query)
+    answer = get_response_from_query(db, query)
     
-    return response
+    return {"pergunta": query, "answer": answer}
