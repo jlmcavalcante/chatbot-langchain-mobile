@@ -1,5 +1,9 @@
-# chatbot-langchain-mobile
-- Comando para executar a aplicação: uvicorn main:app --reload
-- Sair do ambiente virtual python: source deactivate
+# Chatbot do APP com langchain
+- Criar o seu ambiente virtual: python3 -m venv .venv
 - Ativar o ambiente virtual: source .venv/bin/activate
+- Instalar as dependências: pip install -r requirements.txt
+
 - mostrar o caminho para o executável do Python: which python
+- Sair do ambiente virtual python: source deactivate
+
+- Comando para executar a aplicação: uvicorn main:app --reload
