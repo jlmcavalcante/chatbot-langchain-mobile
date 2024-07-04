@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from controllers import chatbot_controller
+from src.controllers import chatbot_controller
 
 app = FastAPI()
 

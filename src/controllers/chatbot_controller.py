@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from services.chatbot_service import process_query
+from src.services.chatbot_service import process_query
 
 router = APIRouter()
 
