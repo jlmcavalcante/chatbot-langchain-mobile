@@ -1,3 +1,7 @@
-### Testar o endpoint do chatbot
-GET https://chatbot-langchain-5n3o.onrender.com/chatbot/?question=o%20que%20%C3%A9%20autismo%3F HTTP/1.1
+### Testar o endpoint do chatbot localmente
+POST http://127.0.0.1:8000/chatbot/ HTTP/1.1
 Content-Type: application/json
+
+{
+    "question": "o que é autismo?"
+}

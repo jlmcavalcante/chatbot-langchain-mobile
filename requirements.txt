@@ -1,6 +1,7 @@
 # Bibliotecas para FastAPI e Uvicorn
 fastapi==0.100.0
 uvicorn==0.22.0
+starlette==0.27.0  # Biblioteca necessária para CORS
 
 # Bibliotecas do projeto
 langchain==0.0.330
