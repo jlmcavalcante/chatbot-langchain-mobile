@@ -96,20 +96,20 @@ def get_response_from_query(db, query, k=4):
     return response['answer']
 
 def load_youtube_links(file_path: str) -> list:
-    # Carrega links do YouTube a partir de um arquivo de texto
-    with open(file_path, 'r') as file:
+    abs_file_path = os.path.join(os.path.dirname(__file__), "..", file_path)
+    with open(abs_file_path, 'r') as file:
         links = [line.strip() for line in file.readlines()]
     return links
 
 def load_pdf_paths(folder_path: str) -> list:
-    # Carrega caminhos para PDFs em uma pasta
-    pdf_paths = glob.glob(os.path.join(folder_path, "*.pdf"))
+    abs_folder_path = os.path.join(os.path.dirname(__file__), "..", folder_path)
+    pdf_paths = glob.glob(os.path.join(abs_folder_path, "*.pdf"))
     return pdf_paths
 
 def process_query(query):
     # Carrega os links do YouTube e os caminhos dos PDFs
-    video_urls = load_youtube_links("assets/youtube_links.txt")
-    pdf_paths = load_pdf_paths("assets/pdfs")
+    video_urls = load_youtube_links("src/assets/youtube_links.txt")
+    pdf_paths = load_pdf_paths("src/assets/pdfs")
     
     # Cria vetores para vídeos do YouTube e livros em PDF
     db = create_vectors(video_urls, pdf_paths)
