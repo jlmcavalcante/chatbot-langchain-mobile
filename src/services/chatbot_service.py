@@ -96,13 +96,13 @@ def get_response_from_query(db, query, k=4):
     return response['answer']
 
 def load_youtube_links(file_path: str) -> list:
-    abs_file_path = os.path.join(os.path.dirname(__file__), "..", file_path)
+    abs_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", file_path))
     with open(abs_file_path, 'r') as file:
         links = [line.strip() for line in file.readlines()]
     return links
 
 def load_pdf_paths(folder_path: str) -> list:
-    abs_folder_path = os.path.join(os.path.dirname(__file__), "..", folder_path)
+    abs_folder_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", folder_path))
     pdf_paths = glob.glob(os.path.join(abs_folder_path, "*.pdf"))
     return pdf_paths
 
