@@ -1,5 +1,6 @@
 # Chatbot do APP com langchain
 - Criar o seu ambiente virtual: python3 -m venv myenv
+- python3.9.13 -m venv myenv
 - Ativar o ambiente virtual: source myenv/bin/activate
 - Instalar as dependências: pip install -r requirements.txt
 
