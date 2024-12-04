@@ -7,3 +7,4 @@
 - Sair do ambiente virtual python: source deactivate
 
 - Comando para executar a aplicação: uvicorn src.main:app --reload
+- Executar o Front: streamlit run src/front/chat_app.py
