@@ -1,5 +1,13 @@
 ### Testar o endpoint do chatbot localmente
-POST http://127.0.0.1:8000/chatbot/ HTTP/1.1
+POST http://127.0.0.1:8000/chatbot/
+Content-Type: application/json
+
+{
+    "question": "O que eu preciso estudar para a prova de Gestão de Projetos de Software?"
+}
+
+### Testar o endpoint do chatbot remoto
+POST https://chatbot-langchain-5n3o.onrender.com/chatbot/
 Content-Type: application/json
 
 {

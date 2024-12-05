@@ -1,0 +1,231 @@
+ 
+ 
+ 
+ 
+PLANO  DE UNIDADE  CURRICULAR  
+CURSO  PERÍODO  
+Engenharia de Software  2024.2  
+UNIDADE  CURRICULAR  CÓDIGO  
+Pesquisa Operacional  
+PROFESSOR  CARGA  HORÁRIA  
+Francisco José de Araújo  72h 
+ 
+1. APRESENTAÇÃO  
+A  Pesquisa Operacional é área de conhecimento que estuda probl emas de 
+como melhorar a conclusão e a coordenação das operações de  uma organização. 
+Mais especificamente, a Pesquisa Operacional envolve a aplicação de métodos 
+analíticos para apoiar a decisão de executivos, permitindo decisões mais bem 
+informadas sobre o  processo e operações. Tanto quanto possível, a Pesquisa 
+Operacional busca obter a melhor solução possível para um dado problema, 
+denominada “solução ótima”. Chamamos a esse processo de obter a solução ótima 
+para um determinado processo de “otimizar a oper ação”.  
+A disciplina Pesquisa Operacional  tem como meta principal apresentar aos 
+alunos o potencial de Pesquisa Operacional para a resolução de uma gama de 
+problemas que ocorrem nas empresas, por meio de modelagem e resolução, através 
+da programação linear  e programação inteira.  
+ 
+2. EMENTA  
+Modelagem. Problemas de Programação Linear. Resolução gráfica de um 
+Problema de Programação Linear. Algoritmo Simplex. Dualidade. Algoritmo Dual 
+Simplex. Análise de Sensibilidade. Noções de Programação Inteira.  
+ 
+3. OBJETIVOS  
+3.1. Geral 
+O objetivo principal da Pesquisa Operacional é determinar a melhor 
+utilização de recursos limitados procurando determinar a programação otimizada de 
+atividades ou recursos, fornecendo um conjunto de procedimentos e métodos 
+quantitativos para tratar de forma sistêmica problemas que envolvam a utilização de 
+recursos escassos.  
+3.2. Específicos  
+ Construir modelos matemáticos para a geração de informações e 
+cenários futuros para a avaliação das consequências das decisões.  
+ Identificar e modelar problemas de tomada de decisão sobre a alocação 
+de recursos  
+ 
+ 
+ 
+ 
+ Resolver problemas de programação linear por meio da utilização do 
+método gráfico.  
+ Resolver problemas de programação linear usando o algoritmo do  
+método Simplex e do Software Lindo  
+ Formular e resolver modelos duais de problemas de programação linear 
+de modo a facilitar o processo de decisão.  
+ Determinar os fluxos de transporte em rotas que ligam várias fontes e 
+vários destinos, com o objetivo de minimizar o custo total de transporte 
+na rede.  
+ Designar tarefas a vários equipamentos ou equipes de modo a 
+minimizar o custo total de execução.  
+ Formular e resolver modelos duais de problemas de programação linear 
+de modo a facilitar o processo de decisão  
+ Realizar a análise de sensibilidade para testar a robustez e a validade da  
+solução encontrada, antes de encaminhá -la para a implementação  
+ Resolver problemas usando o algoritmo de programação inteira . 
+ 
+4. CONTEÚDO PROGRAMÁTICO  
+Unidade I: A presentação da Pesquisa Operacional  
+1. O que é a Pesquisa Operacional?  
+2. Por que estudar Pesquisa O peracional?  
+3. Origem da Pesquisa Operacional  
+4. Aplicação da Pesquisa Operacional  
+5. Fases de um estudo de Pesquisa Operacional  
+ 
+Unidade II:  Modelagem de Problemas  Gerenciais  
+1. O modelo no processo de decisão  
+2. Variáveis  
+3. Tipos de modelo  
+4. Modelos Matemáticos  
+5. Construção dos modelos de Simulação  
+6. Construção dos modelos de Otimização.  
+ 
+Unidade III: Modelagem de Problemas de Programação Linear  
+1. Modelos de Programação Linear  
+2. Definição geral da Programação Linear  
+ 
+ 
+ 
+ 
+3. Solução gráfica em Programação Linear com duas variáveis  
+4. Exercíci os 
+ 
+Unidade IV:  Método Simplex  
+1. Introdução  
+2. Forma Padrão e Canônica de um Problema de Programação Linear  
+3. Teoremas fundamentais  
+4. Algoritmo do método simplex  
+5. Solução usando quadros  
+6. Casos especiais do método simplex  
+7. Método das duas fases  
+8. Exercícios  
+ 
+Unidade V: Dualidade   
+1. Teoremas da Dualidade  
+2. Exemplos de formulação do Dual  
+3. Método Dual – Simplex  
+4. Exercícios  
+ 
+Unidade VI: Análise de Sensibilidade  
+1. Mudança simples nos coeficientes da função objetiva  
+2. Mudança no coeficiente de uma variável básica  
+3. Mudança no coeficiente d e uma variável não básica  
+4. Exercícios  
+ 
+Unidade VII: Noções de Programação Inteira  
+1. Método dos Planos de Corte  
+2. Algoritmo de Gomory  
+3. Exercícios  
+ 
+5. HABILIDADES E COMPETÊNCIAS  
+É desejável que, ao término da disciplina, o aluno desenvolva as seguintes 
+habilidades:  
+i. Formular Modelos   de Pesquisa Operacional  
+ii. Resolver problema s de Programação Linear usando o método gráfico  
+iii. Resolver proble mas de Programação Linear usando o algoritmo do Simplex 
+ 
+ 
+ 
+ 
+através do quadro.  
+iv. Resolver    problemas de Programação Linear usando software Lindo ou Lingo  
+v. Resolver o problema Dual  
+vi. Resolver problemas de Programação Linear usando o algoritmo do Dual -
+Simplex . 
+vii. Resolver problemas fazendo a análise de Sensibilidade.  
+viii. Resolver problemas de Programação Linear usando o algoritmo de 
+Programação Linear Inteira.  
+O desenvolvimento das habilidades  previstas acima são o desdobramento da 
+aquisição das seguintes competências, desejadas:  
+i. Compreender os conceito s básicos da Pesquisa Operacional  
+ii. Compreender os conceitos de Modelagem  em Programação Linear  
+iii. Compreender os teoremas da Programação Linear  
+iv. Com preender o algoritmo do Método Simplex  
+v. Com preender os Teoremas da Dualidade  
+vi. Compreender a análise de Sensibilidade  
+vii. Compreender o algoritmo dual -simplex  
+viii. Compreend er  o método  do corte de Gomory em Programação Inteira  
+ 
+6. METODOLOGIA DE DESENVOLVIMENTO DA UNIDADE 
+CURRICULAR  
+A condução das aulas da Unidade Curricular, considerando as habilidades e 
+competências esperadas do aluno, contemplar á aulas expositivas dialogadas e aulas 
+práticas usando software da área, propiciando a interação entre aluno -professor e  
+entre os próprios alunos, com inserção prévia do material a ser utilizado pelo 
+docente na plataforma digital acessível pelos discentes.  
+As metodologias ativas são outras estratégias consideradas ao ministrar as 
+atividades de ensino, uma vez que possibilitam o engajamento do aluno e a 
+perspectiva ativa dentro do processo de ensino -aprendizagem, estimulando a 
+resolução de problemas práticos e contribuindo para o desenvolvimento de 
+competências como o pensamento crítico.    
+A metodologia ativa da sal a de aula invertida é uma abordagem pedagógica 
+que altera a forma tradicional de ensino, colocando o foco na interação e no 
+engajamento dos alunos com o conteúdo. Em vez de usar o tempo de aula para 
+apresentação teórica e deixar a prática para fora da sala , a sala de aula invertida 
+inverte esse processo: os alunos estudam o conteúdo teórico em casa, por meio de 
+vídeos , leituras e outros materiais, e utilizam o tempo de aula para discussão, 
+ 
+ 
+ 
+ 
+resolução de problemas e atividades práticas.  
+ 
+7. AVALIAÇÃO DE APRENDIZAGEM  
+A nota final (NF) de cada Unidade Curricular ao final de cada período letivo 
+será composta pela méd ia aritmética das notas bimestrais parcelares e do simulado, 
+seguindo a fórmula: NF = (P1 + P2 + P3) / 3.  
+As notas bimestrais parcelares (P1/P2) serão compostas pela soma de uma 
+avaliação escrita de caráter experimental e/ou prático (80% de peso, tendo no ta 
+máxima 8,0), sem que possa ser objetiva, e de avaliações seriadas nas formas de 
+quizzes e/ou atividades práticas (20% de peso, tendo nota máxima 2,0), seguindo a 
+fórmula: P1/P2 = (avaliação escrita) + (quizzes/ativ. práticas).  
+A nota aprovativa é 7,0  (sete) e a cada avaliação Discursiva e 
+Interdisciplinar o aluno terá direito a uma  avaliação Substitutiva (REC) para cada 
+uma delas, caso não atinja  a nota aprovativa. A avaliação Substitutiva será aplicada 
+em até 15 dias após a divulgação do resultado da s avaliações regulares.  
+Ao final do semestre letivo, o aluno deverá alcançar Média Final igual o 
+superior a 7,0(sete). Caso o aluno tenha Média Final inferior a 4,0(quatro), estará 
+automaticamente REPROVADO por nota. Por outro lado, caso a Média Final fiqu e 
+entre 4,0 e 6,9, o aluno terá direito ao Exame Final (REC2). Para aprovação no 
+Exame Final (REC2) o aluno deverá obter média igual ou superior a 6,0(seis) 
+calculada à partir da média aritmética entre a Média Final e a nota do Exame Final 
+(REC2).  
+É obriga tório, para aprovação, a frequência mínima de 75% às atividades 
+previstas no Plano da Unidade Curricular.  
+Conceitos a serem adotados:  
+CONCEITO  CÓDIGO  
+Aprovado por Média  AM 
+Aprovado em Exame Final  EF 
+Reprovado por Nota  RN 
+Reprovado por Falta  RF 
+Crédito  Concedido  CC 
+ 
+8. ATIVIDADES DE PESQUISA ARTICULADAS AO ENSINO  
+Estimular os alunos para ler artigos sobre o tema relevante a Pesquisa 
+Operacional . 
+ 
+9. ATIVIDADES DE EXTENSÃO ARTICULADAS AO ENSINO  
+Poderão ser lançados cursos de extensão para os alunos desta IE S e para a 
+comunidade acadêmica em geral com a temática dessa disciplina ou áreas afins. 
+ 
+ 
+ 
+ 
+Serão ofertados cursos com temáticas que ajudem o aluno ou a comunidade na 
+construção de uma melhor compreensão da realidade atual.  
+ 
+10. BIBLIOGRAFIA COMPLEMENTAR  
+TAHA, H. A. Pesquisa Operacional: Uma visão geral . São Paulo, 8ª  Ed. Pearson 
+Prentice .  2008.  
+HILLIER, F. S.,  LIEBERMAN  , G. J. Introdução à Pesquisa Operacional 9 a Ed.  
+Porto Alegre AMGH. 2012 . 
+ANDRADE, E. L. Introdução à Pesquisa Operacional: métodos e modelos para 
+análise de decisões. 3 a Ed.  Rio d e Janeiro.  LTC. 2004 . 
+ 
+11. BIBLIOGRAFIA COMPLEMENTAR  
+HADLEY, G. Programação Linear. Rio de Janeiro: Guanabara Dois. 1982  
+EHRLICH, P. J. Pesquisa Operacional: Curso introdução. 7ª Ed. São Paulo. Atlas. 
+2001.  
+LACHTERMACHERR. G. Pesquisa Operacional na tomada de decisões. 2 a Ed. 
+Campus. 2004.  
+ERMES,  M. S. Pesquisa Operacional . São Paulo. Atlas. 1998.  
+GOLDBARG, Marcos Cesar; LUNA, Henrique Pacca. L. Otimização combinatória 
+e Programação Linear: modelos e algoritmos. Rio de Janeiro. Campus. 2000  
